@@ -31,6 +31,7 @@ using System.Reflection;
 using log4net;
 using Mono.Addins;
 using Nini.Config;
+using OpenMetaverse;
 using OpenSim.Framework;
 using OpenSim.Region.Framework.Interfaces;
 using OpenSim.Region.Framework.Scenes;
@@ -81,6 +82,15 @@ namespace EventRecorder
             m_log.DebugFormat(
                 "[GENERIC MESSAGE]: Received message with method {0}, args {1} from {2} in {3}", 
                 method, string.Join("|", args.ToArray()), client.Name, client.Scene.Name);
+
+            string replyMethod = "reply";
+            List<string> replyArgs = new List<string>() { "one", "two" };
+
+            client.SendGenericMessage(replyMethod, UUID.Zero, replyArgs.ToArray());
+
+            m_log.DebugFormat(
+                "[GENERIC MESSAGE]: Replied with message{0}, args {1} to {2} in {3}", 
+                replyMethod, string.Join("|", replyArgs.ToArray()), client.Name, client.Scene.Name);
         }
         
         public void RemoveRegion(Scene scene)
