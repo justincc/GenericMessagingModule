@@ -27,6 +27,14 @@ Then send a generic message such as
 command line, you should see the module log the fact that it has received this
 message.
 
+The server will then reply with it's own generic message.  To see this using the
+libopenmetaverse TestClient, you will first need to start logging packets to a
+file with a command such as
+
+> logpacket 100 packets.log
+
+Again, this only works with the current bleeding edge libopenmetaverse
+
 [1] https://github.com/openmetaversefoundation/libopenmetaverse/
 
 # vim: ts=4:sw=4:et:tw=80
