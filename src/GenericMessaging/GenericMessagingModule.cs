@@ -86,7 +86,7 @@ namespace EventRecorder
             string replyMethod = "reply";
             List<string> replyArgs = new List<string>() { "one", "two" };
 
-            client.SendGenericMessage(replyMethod, UUID.Zero, replyArgs.ToArray());
+            client.SendGenericMessage(replyMethod, UUID.Zero, replyArgs);
 
             m_log.DebugFormat(
                 "[GENERIC MESSAGE]: Replied with message{0}, args {1} to {2} in {3}", 
